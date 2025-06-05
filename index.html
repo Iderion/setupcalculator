@@ -3,14 +3,74 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Setup Calculator</title>
+    <title>Setup Calculator - Start</title>
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-    <h1>Willkommen beim Setup Calculator!</h1>
-    <p>Diese Seite wird bald mehr Funktionen haben.</p>
-    <p>➡️ Gehe zu <a href="setup.html">Setup Tool</a></p>
-    
+    <div class="container">
+        <header>
+            <img src="assets/logo.svg" alt="Logo" class="logo">
+            <h1 id="welcome-title">Setup Calculator</h1>
+        </header>
+        
+        <main>
+            <div id="token-form">
+                <label for="token-input" id="token-label">Bitte geben Sie Ihren Token ein:</label>
+                <input type="text" id="token-input" placeholder="Ihr Setup-Token">
+                <button id="submit-token">Weiter zum Setup</button>
+                
+                <div id="error-message" class="error"></div>
+                
+                <div class="separator">oder</div>
+                
+                <button id="create-token">Neuen Token erstellen</button>
+            </div>
+        </main>
+        
+        <footer>
+            <select id="language-select">
+                <option value="de">Deutsch</option>
+                <option value="en">English</option>
+            </select>
+        </footer>
+    </div>
+
+    <script src="js/i18n.js"></script>
+    <script src="js/token.js"></script>
     <script src="js/main.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Sprache initialisieren
+            loadLanguage('de');
+            
+            // Automatische Weiterleitung wenn Token vorhanden
+            if (getToken()) {
+                setTimeout(() => window.location.href = 'setup.html', 1500);
+            }
+            
+            // Token-Überprüfung
+            document.getElementById('submit-token').addEventListener('click', () => {
+                const token = document.getElementById('token-input').value.trim();
+                if (validateToken(token)) {
+                    saveToken(token);
+                    window.location.href = 'setup.html';
+                } else {
+                    document.getElementById('error-message').textContent = t('token.invalid');
+                }
+            });
+            
+            // Neuen Token erstellen
+            document.getElementById('create-token').addEventListener('click', () => {
+                const token = generateToken();
+                saveToken(token);
+                window.location.href = 'newtoken.html';
+            });
+            
+            // Sprachumschaltung
+            document.getElementById('language-select').addEventListener('change', (e) => {
+                loadLanguage(e.target.value);
+            });
+        });
+    </script>
 </body>
 </html>

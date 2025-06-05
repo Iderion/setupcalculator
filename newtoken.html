@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Neuer Token - Setup Calculator</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <img src="assets/logo.svg" alt="Logo" class="logo">
+            <h1 data-i18n="token.new">Ihr neuer Token</h1>
+        </header>
+        
+        <main>
+            <div class="token-display">
+                <p data-i18n="token.save">Bitte bewahren Sie diesen Token sicher auf:</p>
+                <div id="token-value" class="token-value"></div>
+                <p data-i18n="token.warning">Dieser Token wird nur einmal angezeigt!</p>
+                <button id="continue-btn" data-i18n="button.continue">Weiter zum Setup</button>
+            </div>
+        </main>
+    </div>
+
+    <script src="js/i18n.js"></script>
+    <script src="js/token.js"></script>
+    <script src="js/main.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            loadLanguage('de');
+            
+            const token = getToken();
+            if (!token) {
+                window.location.href = 'index.html';
+                return;
+            }
+            
+            document.getElementById('token-value').textContent = token;
+            document.getElementById('continue-btn').addEventListener('click', () => {
+                window.location.href = 'setup.html';
+            });
+        });
+    </script>
+</body>
+</html>

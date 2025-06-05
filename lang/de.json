@@ -1,0 +1,14 @@
+{
+    "welcome": "Setup Calculator",
+    "token.prompt": "Bitte geben Sie Ihren Token ein:",
+    "token.invalid": "Ungültiger Token! Bitte versuchen Sie es erneut.",
+    "token.new": "Ihr neuer Token",
+    "token.save": "Bitte speichern Sie diesen Token sicher auf:",
+    "token.warning": "Dieser Token wird nur einmal angezeigt!",
+    "setup.title": "Ihr Setup",
+    "setup.current": "Aktuelles Setup",
+    "setup.description": "Konfigurieren Sie hier Ihre Fahrzeug-Komponenten...",
+    "button.continue": "Weiter zum Setup",
+    "button.print": "Setup drucken",
+    "button.logout": "Abmelden"
+}

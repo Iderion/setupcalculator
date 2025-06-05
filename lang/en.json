@@ -1,0 +1,14 @@
+{
+    "welcome": "Setup Calculator",
+    "token.prompt": "Please enter your token:",
+    "token.invalid": "Invalid token! Please try again.",
+    "token.new": "Your New Token",
+    "token.save": "Please save this token securely:",
+    "token.warning": "This token will be shown only once!",
+    "setup.title": "Your Setup",
+    "setup.current": "Current Setup",
+    "setup.description": "Configure your hardware components here...",
+    "button.continue": "Continue to Setup",
+    "button.print": "Print Setup",
+    "button.logout": "Logout"
+}
