@@ -160,6 +160,21 @@
     <script src="js/main.js"></script>
     <script src="js/setup.js"></script>
     <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            loadLanguage('de');
+            
+            const token = getToken();
+            if (!token) {
+                window.location.href = 'index.html';
+                return;
+            }
+            
+            document.getElementById('token-value').textContent = token;
+            document.getElementById('continue-btn').addEventListener('click', () => {
+                window.location.href = 'setup.html';
+            });
+        });
+
         // Setup.js wird die Logik für die Interaktionen übernehmen
     </script>
 </body>
