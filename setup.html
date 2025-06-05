@@ -5,20 +5,152 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Setup Tool - Setup Calculator</title>
     <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
     <div class="container">
         <header>
             <img src="assets/logo.svg" alt="Logo" class="logo">
             <h1 data-i18n="setup.title">Ihr Setup</h1>
+            <div class="header-controls">
+                <button id="theme-toggle" title="Design wechseln">
+                    <i class="fas fa-moon"></i>
+                </button>
+                <select id="track-select">
+                    <option value="Bahrain">Bahrain</option>
+                    <option value="Monza">Monza</option>
+                    <option value="Silverstone">Silverstone</option>
+                    <option value="Spa">Spa-Francorchamps</option>
+                </select>
+            </div>
         </header>
         
-        <main id="setup-content">
-            <p>Hier kommt Ihr Setup-Inhalt...</p>
+        <main>
+            <div class="setup-container">
+                <!-- Linke Spalte: Aktuelles Setup und Feedback -->
+                <div class="setup-section">
+                    <h2 data-i18n="setup.current">Aktuelles Setup</h2>
+                    
+                    <div class="setup-values">
+                        <div class="setup-item">
+                            <label data-i18n="setup.front_wing">Frontflügel</label>
+                            <input type="number" id="front-wing" min="0" max="50" value="35">
+                        </div>
+                        
+                        <div class="setup-item">
+                            <label data-i18n="setup.rear_wing">Heckflügel</label>
+                            <input type="number" id="rear-wing" min="0" max="50" value="33">
+                        </div>
+                        
+                        <!-- Weitere Setup-Werte hier einfügen -->
+                    </div>
+                    
+                    <div class="feedback-section">
+                        <h3 data-i18n="setup.feedback">Fahrer-Feedback</h3>
+                        
+                        <div class="feedback-item">
+                            <label data-i18n="setup.top_speed">Topspeed (km/h)</label>
+                            <input type="number" id="top-speed" min="250" max="380" value="312">
+                        </div>
+                        
+                        <div class="feedback-item">
+                            <label data-i18n="setup.tire_wear_front">Reifenverschleiß vorne (%)</label>
+                            <input type="number" id="tire-wear-front" min="0" max="100" value="18">
+                        </div>
+                        
+                        <div class="feedback-item">
+                            <label data-i18n="setup.tire_wear_rear">Reifenverschleiß hinten (%)</label>
+                            <input type="number" id="tire-wear-rear" min="0" max="100" value="21">
+                        </div>
+                        
+                        <div class="feedback-group">
+                            <label>
+                                <input type="checkbox" id="understeer-slow">
+                                <span data-i18n="setup.understeer_slow">Untersteuern in langsamen Kurven</span>
+                            </label>
+                            
+                            <label>
+                                <input type="checkbox" id="understeer-fast">
+                                <span data-i18n="setup.understeer_fast">Untersteuern in schnellen Kurven</span>
+                            </label>
+                            
+                            <label>
+                                <input type="checkbox" id="oversteer">
+                                <span data-i18n="setup.oversteer">Übersteuern</span>
+                            </label>
+                        </div>
+                        
+                        <div class="feedback-item">
+                            <label data-i18n="setup.tire_temp">Reifeninnentemperatur (°C)</label>
+                            <input type="text" id="tire-temp" placeholder="VL:95, VR:97, HL:105, HR:103">
+                        </div>
+                        
+                        <div class="feedback-item">
+                            <label data-i18n="setup.track_temp">Streckentemperatur (°C)</label>
+                            <input type="number" id="track-temp" value="36">
+                        </div>
+                        
+                        <div class="feedback-item">
+                            <label data-i18n="setup.fuel_load">Tankmenge (kg)</label>
+                            <input type="number" id="fuel-load" min="0" max="110" value="29">
+                        </div>
+                        
+                        <div class="feedback-item">
+                            <label data-i18n="setup.target">Zielvorgabe</label>
+                            <select id="target">
+                                <option value="less_wear" data-i18n="setup.target_less_wear">Weniger Verschleiß</option>
+                                <option value="more_grip" data-i18n="setup.target_more_grip">Mehr Grip in Sektor 2</option>
+                                <option value="top_speed" data-i18n="setup.target_top_speed">Höhere Topspeed</option>
+                                <option value="stability" data-i18n="setup.target_stability">Mehr Stabilität</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Rechte Spalte: Ergebnisse und Vorschläge -->
+                <div class="results-section">
+                    <h2 data-i18n="setup.results">Berechnete Vorschläge</h2>
+                    
+                    <div class="optimization-mode">
+                        <button class="mode-btn active" data-mode="race" data-i18n="setup.mode_race">Rennen</button>
+                        <button class="mode-btn" data-mode="quali" data-i18n="setup.mode_quali">Qualifying</button>
+                    </div>
+                    
+                    <div id="results-container">
+                        <div class="result-card">
+                            <h3 data-i18n="setup.recommended">Empfohlenes Setup</h3>
+                            <div class="setup-values">
+                                <div class="setup-item">
+                                    <label data-i18n="setup.front_wing">Frontflügel</label>
+                                    <div class="value-diff">
+                                        <span>37</span>
+                                        <span class="diff positive">+2</span>
+                                    </div>
+                                </div>
+                                <!-- Weitere Werte hier -->
+                            </div>
+                            <div class="reasoning">
+                                <h4 data-i18n="setup.reasoning">Begründung:</h4>
+                                <ul>
+                                    <li data-i18n="setup.reason_1">Frontflügel erhöht (+2) wegen Untersteuern in schnellen Kurven</li>
+                                    <li data-i18n="setup.reason_2">Reifendruck hinten links reduziert (-0.5 PSI) zur Temperaturabsenkung</li>
+                                </ul>
+                            </div>
+                        </div>
+                        
+                        <div class="result-card">
+                            <h3 data-i18n="setup.alternative">Alternative Variante</h3>
+                            <!-- Inhalt ähnlich wie oben -->
+                        </div>
+                    </div>
+                    
+                    <button id="calculate-btn" class="primary-btn" data-i18n="button.calculate">Vorschlag berechnen</button>
+                    <button id="print-btn" data-i18n="button.print">Setup drucken</button>
+                </div>
+            </div>
         </main>
         
         <footer>
-            <button id="print-btn" data-i18n="button.print">Setup drucken</button>
             <button id="logout-btn" data-i18n="button.logout">Abmelden</button>
         </footer>
     </div>
@@ -28,29 +160,7 @@
     <script src="js/main.js"></script>
     <script src="js/setup.js"></script>
     <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            loadLanguage('de');
-            
-            // Token-Prüfung
-            if (!getToken()) {
-                window.location.href = 'index.html';
-                return;
-            }
-            
-            // Druckfunktion
-            document.getElementById('print-btn').addEventListener('click', () => {
-                window.print();
-            });
-            
-            // Logout
-            document.getElementById('logout-btn').addEventListener('click', () => {
-                localStorage.removeItem('token');
-                window.location.href = 'index.html';
-            });
-            
-            // Setup-Logik initialisieren
-            initSetup();
-        });
+        // Setup.js wird die Logik für die Interaktionen übernehmen
     </script>
 </body>
 </html>

@@ -210,3 +210,143 @@ button:hover {
         display: none;
     }
 }
+
+/* Zusätzliche Styles für das Setup-Tool */
+
+/* Layout */
+.setup-container {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.setup-section, .results-section {
+    flex: 1;
+    min-width: 300px;
+    background-color: var(--card);
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px var(--shadow);
+}
+
+/* Setup-Werte */
+.setup-values {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    gap: 15px;
+    margin-bottom: 20px;
+}
+
+.setup-item, .feedback-item {
+    margin-bottom: 15px;
+}
+
+.setup-item label, .feedback-item label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+    color: var(--text);
+}
+
+.setup-item input, .feedback-item input, .feedback-item select {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    background-color: var(--card);
+    color: var(--text);
+}
+
+.feedback-group {
+    margin: 15px 0;
+}
+
+.feedback-group label {
+    display: block;
+    margin-bottom: 8px;
+}
+
+/* Ergebnisse */
+.results-section {
+    display: flex;
+    flex-direction: column;
+}
+
+.optimization-mode {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 15px;
+}
+
+.mode-btn {
+    flex: 1;
+    padding: 10px;
+    background-color: transparent;
+    border: 2px solid var(--primary);
+    color: var(--primary);
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.mode-btn.active {
+    background-color: var(--primary);
+    color: white;
+}
+
+.result-card {
+    background-color: rgba(0, 0, 0, 0.05);
+    border-radius: 8px;
+    padding: 15px;
+    margin-bottom: 15px;
+    border-left: 4px solid var(--primary);
+}
+
+.value-diff {
+    display: flex;
+    justify-content: space-between;
+}
+
+.diff {
+    font-weight: bold;
+    margin-left: 10px;
+}
+
+.diff.positive {
+    color: #27ae60;
+}
+
+.diff.negative {
+    color: #e74c3c;
+}
+
+.reasoning {
+    margin-top: 15px;
+    padding-top: 15px;
+    border-top: 1px solid #eee;
+}
+
+.reasoning ul {
+    padding-left: 20px;
+    margin-top: 10px;
+}
+
+.reasoning li {
+    margin-bottom: 8px;
+}
+
+.primary-btn {
+    background-color: var(--accent);
+    color: white;
+    margin-top: 15px;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .setup-container {
+        flex-direction: column;
+    }
+    
+    .setup-values {
+        grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+    }
+}
