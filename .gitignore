@@ -1,0 +1,11 @@
+# Betriebssystem
+.DS_Store
+Thumbs.db
+
+# Entwicklung
+.vscode/
+*.log
+*.tmp
+
+# Node
+node_modules/
