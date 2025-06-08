@@ -1,0 +1,245 @@
+{
+  "categories": {
+    "aerodynamics": {
+      "name": "Aerodynamik",
+      "parameters": {
+        "front_wing": {
+          "name": "Frontflügel",
+          "unit": "",
+          "min": 0,
+          "max": 50,
+          "step": 1,
+          "defaults": {
+            "Monza": 30,
+            "Monaco": 45,
+            "Silverstone": 38
+          }
+        },
+        "rear_wing": {
+          "name": "Heckflügel",
+          "unit": "",
+          "min": 0,
+          "max": 50,
+          "step": 1,
+          "defaults": {
+            "Monza": 28,
+            "Monaco": 42,
+            "Silverstone": 35
+          }
+        }
+      }
+    },
+    "suspension_geometry": {
+      "name": "Aufhängungsgeometrie",
+      "parameters": {
+        "front_camber": {
+          "name": "Sturz vorne",
+          "unit": "°",
+          "min": -5.0,
+          "max": -1.0,
+          "step": 0.1,
+          "defaults": {
+            "Monza": -3.2,
+            "Monaco": -2.8,
+            "Silverstone": -3.0
+          }
+        },
+        "rear_camber": {
+          "name": "Sturz hinten",
+          "unit": "°",
+          "min": -5.0,
+          "max": -1.0,
+          "step": 0.1,
+          "defaults": {
+            "Monza": -2.0,
+            "Monaco": -1.8,
+            "Silverstone": -1.9
+          }
+        },
+        "front_toe": {
+          "name": "Spur vorne",
+          "unit": "°",
+          "min": -0.5,
+          "max": 1.0,
+          "step": 0.01,
+          "defaults": {
+            "Monza": 0.05,
+            "Monaco": 0.10,
+            "Silverstone": 0.07
+          }
+        }
+      }
+    },
+    "suspension": {
+      "name": "Federung und Dämpfer",
+      "parameters": {
+        "front_arb": {
+          "name": "Stabilisator vorne",
+          "unit": "",
+          "min": 1,
+          "max": 11,
+          "step": 1,
+          "defaults": {
+            "Monza": 5,
+            "Monaco": 3,
+            "Silverstone": 4
+          }
+        },
+        "rear_arb": {
+          "name": "Stabilisator hinten",
+          "unit": "",
+          "min": 1,
+          "max": 11,
+          "step": 1,
+          "defaults": {
+            "Monza": 6,
+            "Monaco": 4,
+            "Silverstone": 5
+          }
+        },
+        "front_springs": {
+          "name": "Federn vorne",
+          "unit": "",
+          "min": 1,
+          "max": 11,
+          "step": 1,
+          "defaults": {
+            "Monza": 7,
+            "Monaco": 5,
+            "Silverstone": 6
+          }
+        }
+      }
+    },
+    "transmission": {
+      "name": "Getriebe",
+      "parameters": {
+        "differential_on_throttle": {
+          "name": "Differenzial Gas",
+          "unit": "%",
+          "min": 50,
+          "max": 100,
+          "step": 1,
+          "defaults": {
+            "Monza": 75,
+            "Monaco": 65,
+            "Silverstone": 70
+          }
+        },
+        "differential_off_throttle": {
+          "name": "Differenzial Schubabschaltung",
+          "unit": "%",
+          "min": 50,
+          "max": 100,
+          "step": 1,
+          "defaults": {
+            "Monza": 65,
+            "Monaco": 60,
+            "Silverstone": 62
+          }
+        }
+      }
+    },
+    "brakes": {
+      "name": "Bremsen",
+      "parameters": {
+        "brake_pressure": {
+          "name": "Bremsdruck",
+          "unit": "%",
+          "min": 80,
+          "max": 100,
+          "step": 1,
+          "defaults": {
+            "Monza": 90,
+            "Monaco": 95,
+            "Silverstone": 92
+          }
+        },
+        "brake_bias": {
+          "name": "Bremsbalance",
+          "unit": "%",
+          "min": 50,
+          "max": 70,
+          "step": 1,
+          "defaults": {
+            "Monza": 58,
+            "Monaco": 62,
+            "Silverstone": 60
+          }
+        }
+      }
+    },
+    "tires": {
+      "name": "Reifen",
+      "parameters": {
+        "front_left_pressure": {
+          "name": "Reifendruck vorne links",
+          "unit": "PSI",
+          "min": 20.0,
+          "max": 25.0,
+          "step": 0.1,
+          "defaults": {
+            "Monza": 22.5,
+            "Monaco": 22.0,
+            "Silverstone": 22.2
+          }
+        },
+        "front_right_pressure": {
+          "name": "Reifendruck vorne rechts",
+          "unit": "PSI",
+          "min": 20.0,
+          "max": 25.0,
+          "step": 0.1,
+          "defaults": {
+            "Monza": 22.5,
+            "Monaco": 22.0,
+            "Silverstone": 22.2
+          }
+        },
+        "rear_left_pressure": {
+          "name": "Reifendruck hinten links",
+          "unit": "PSI",
+          "min": 20.0,
+          "max": 25.0,
+          "step": 0.1,
+          "defaults": {
+            "Monza": 21.0,
+            "Monaco": 20.8,
+            "Silverstone": 20.9
+          }
+        },
+        "rear_right_pressure": {
+          "name": "Reifendruck hinten rechts",
+          "unit": "PSI",
+          "min": 20.0,
+          "max": 25.0,
+          "step": 0.1,
+          "defaults": {
+            "Monza": 21.0,
+            "Monaco": 20.8,
+            "Silverstone": 20.9
+          }
+        }
+      }
+    }
+  },
+  "tracks": [
+    "Bahrain",
+    "Monza",
+    "Monaco",
+    "Silverstone",
+    "Spa-Francorchamps",
+    "Suzuka",
+    "Melbourne",
+    "Interlagos",
+    "COTA"
+  ],
+  "targets": [
+    "weniger_verschleiss",
+    "mehr_grip",
+    "hohe_topspeed",
+    "bessere_stabilitaet",
+    "besseres_kurveneingang",
+    "bessere_traction"
+  ]
+}
